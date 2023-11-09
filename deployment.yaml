@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeloadbalancer
+spec:
+  selector:
+    matchLabels:
+      app: kubeloadbalancer
+  template:
+    metadata:
+      labels:
+        app: kubeloadbalancer
+    spec:
+      containers:
+      - name: kubeloadbalancer
+        image: load
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
